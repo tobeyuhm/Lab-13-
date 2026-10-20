@@ -26,6 +26,10 @@ CANDIDATES = {
     "D": {"Cash": 100, "Treasury bills": 0, "Treasury 10-year note": 0,
           "Global equity index fund": 0, "Investment-grade bond fund": 0,
           "Private real estate fund": 0, "Acme Corp bonds": 0, "Acme Corp stock": 0},
+    # Meridian's benchmark: 40% investment-grade bonds and 60% global equity.
+    "E": {"Cash": 0, "Treasury bills": 0, "Treasury 10-year note": 0,
+          "Global equity index fund": 60, "Investment-grade bond fund": 40,
+          "Private real estate fund": 0, "Acme Corp bonds": 0, "Acme Corp stock": 0},
 }
 
 RESERVE_SIZE = 100
