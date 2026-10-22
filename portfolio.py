@@ -1,6 +1,7 @@
 """Risk and return calculations for Meridian's simple portfolio baselines."""
 
 import csv
+from io import StringIO
 from math import sqrt
 from pathlib import Path
 
@@ -146,7 +147,10 @@ def estimate_from_prices_csv(csv_source, last_36_months=False):
     else:
         if hasattr(csv_source, "seek"):
             csv_source.seek(0)
-        rows = list(csv.reader(csv_source))
+        content = csv_source.read()
+        if isinstance(content, bytes):
+            content = content.decode("utf-8-sig")
+        rows = list(csv.reader(StringIO(content)))
     if len(rows) < 3:
         raise ValueError("The CSV needs a header and at least two monthly prices.")
     headers = rows[0]
